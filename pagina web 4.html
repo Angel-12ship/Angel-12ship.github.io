@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <meta name="descripción" content="mi primera página">
-    <link rel="icon" href="senati.png">
-    <title>cuarta pagina </title>
+    <meta name="description" content="Mi primera página">
+    <title>Ejemplos con JS</title>
+    <link rel="icon" href="images/senati.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/css.css">
+  
+    <script defer src="ejemplojs.js"></script>
 </head>
 <body>
-    <header>
-       <img src="acf.jpg" alt="logo SENATI">
-    <h1>BIENVENIDOS A MI PAGINA WEB</h1>
+    <header id="encabezado" class="text-center">
+        <img src="images/senati.png" alt="Imagen de cabecera" style="width: 100%; height: auto; display: block;">
+        <h1>BIENVENIDOS A MI CUARTA PAGINA </h1>
     </header>
-    
 
-    <nav>      
-        <ul id="menu">
-            <li><a href="pagina web 2.html">Ir a Segunda Pagina</a></li>
-            <li><a href="pagina web 3.html">Ir a tercera Pagina</a></li>
-            <li><a href="pagina web 4.html">Ir a la cuarta Página</a></li>
-            <li><a href="pagina web 5 .html">Ir a la quinta Página</a></li>
-            <li><a href="index.html">Regresar</a></li>
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-            <link rel="stylesheet" href="css/css.css"> 
+    <nav>
+        <ul id="menu" class="nav justify-content-center my-3">
+            <li class="nav-item"><a class="nav-link" href="pagina web 2.html">Ir a Segunda Página</a></li>
+            <li class="nav-item"><a class="nav-link" href="pagina web 3.html">Ir a Tercera Página</a></li>
+            <li class="nav-item"><a class="nav-link" href="pagina web 4.html">Ir a la Cuarta Página</a></li>
+            <li class="nav-item"><a class="nav-link" href="pagina web 5 .html">Ir a la Quinta Página</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Regresar</a></li>
         </ul>
     </nav>
 
-    <section>
+    <section class="container">
         <article>
-            <h2>Tabla de Datos</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>DNI</th>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>APELLIDO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>73564129</td><td>001</td><td>Luis</td><td>Martínez</td></tr>
-                    <tr><td>84621975</td><td>002</td><td>Lucía</td><td>Ramos</td></tr>
-                    <tr><td>76485213</td><td>003</td><td>Marco</td><td>Salazar</td></tr>
-                    <tr><td>72913584</td><td>004</td><td>Elena</td><td>Quispe</td></tr>
-                    <tr><td>79361582</td><td>005</td><td>Carlos</td><td>Torres</td></tr>
-                </tbody>
-            </table>
+            <h2 id="subtitulo">MI PRIMER EJEMPLO</h2>
+            <img id="estado" src="images/emoji.jpg" alt="Estado" style="width: 100px;">
+            <div class="btn-group m-2 flex-wrap">
+                <button class="btn btn-primary" onclick="feliz()">Feliz</button>
+                <button class="btn btn-secondary" onclick="triste()">Triste</button>
+                <button class="btn btn-success" onclick="cambiarColor()">Cambiar Color</button>
+                <button class="btn btn-warning" onclick="cambiarTexto()">Cambiar Texto</button>
+                <button class="btn btn-info" onclick="mostrarMensaje()">Mostrar Mensaje</button>
+                <button class="btn btn-dark" onclick="location.reload()">Recargar</button>
+                <button class="btn btn-danger" onclick="cambiarFondo()">Cambiar Fondo</button>
+                <button class="btn btn-outline-primary" onclick="sugerirCaptura()">
+                    <i class="fas fa-camera"></i> Sugerir Captura
+                </button>
+                <button class="btn btn-outline-secondary" onclick="cambiarFuente()">
+                    <i class="fas fa-font"></i> Cambiar Fuente
+                </button>
+            </div>
         </article>
-        <aside></aside>
+
+        <article>
+        </article>
+
+        <article>
+            <h3>Ejercicio 1</h3>
+            <h4 id="sub1">Subtítulo 1</h4>
+            <button class="btn btn-outline-success my-1" onclick="document.getElementById('sub1').textContent='¡Hola!'">Cambiar Sub 1</button>
+            <h4 id="sub2">Subtítulo 2</h4>
+            <button class="btn btn-outline-warning my-1" onclick="document.getElementById('sub2').textContent='!ZzZz!'">Cambiar Sub 2</button>
+        </article>
     </section>
 
-    <footer>
-         <footer style="background-color:#003366; color:white; padding:15px; text-align:center;">
+    <footer style="background-color:#003366; color:white; padding:15px; text-align:center;">
         <p>
             <i class="fas fa-phone"></i> Central telefónica: (01) 613-8650 &nbsp; | &nbsp;
             <i class="fas fa-phone-volume"></i> Línea gratuita: 0800-0200 &nbsp; | &nbsp;
@@ -65,5 +75,43 @@
         </div>
         <p>© 2025 Todos los Derechos Reservados.</p>
     </footer>
+
+    <script>
+        function sugerirCaptura() {
+            console.log("Ejecutando sugerirCaptura() - simulando captura");
+            const marco = document.createElement("div");
+            marco.className = "captura-simulada";
+            document.body.appendChild(marco);
+            const mensaje = document.createElement("div");
+            mensaje.className = "mensaje-captura";
+            mensaje.textContent = "Simulación de captura realizada 📸";
+            document.body.appendChild(mensaje);
+            setTimeout(() => {
+                document.body.removeChild(marco);
+                document.body.removeChild(mensaje);
+                console.log("Simulación de captura finalizada");
+            }, 2000);
+        }
+
+        function cambiarFuente() {
+            const fuentes = [
+                'Arial, sans-serif',
+                'Comic Sans MS, cursive, sans-serif',
+                'Georgia, serif',
+                'Courier New, monospace',
+                'Tahoma, sans-serif'
+            ];
+            const encabezado = document.querySelector('#encabezado h1');
+            let fuenteActual = getComputedStyle(encabezado).fontFamily.toLowerCase().replace(/["']/g, "");
+            let nuevaFuente;
+            do {
+                nuevaFuente = fuentes[Math.floor(Math.random() * fuentes.length)];
+            } while (nuevaFuente.toLowerCase() === fuenteActual);
+            encabezado.style.fontFamily = nuevaFuente;
+            console.log(`Fuente cambiada de "${fuenteActual}" a "${nuevaFuente}"`);
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

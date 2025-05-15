@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="mi primera página">
   <title>Tercera Página</title>
-  <link rel="icon" href="senati.png">
+  <link rel="icon" href="images/senati.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/css.css">
   <style>
@@ -59,7 +59,7 @@
 </head>
 <body>
   <header>
-    <img src="acf.jpg" alt="logo SENATI" style="width: 100%; height: auto;">
+    <img src="images/acf.jpg" alt="logo SENATI" style="width: 100%; height: auto;">
     <h1>BIENVENIDOS A MI PÁGINA WEB</h1>
   </header>
 
@@ -151,6 +151,17 @@
     </div>
     <p style="margin-top: 10px;">© 2025 Todos los Derechos Reservados.</p>
   </footer>
+
+  <!-- Script para mostrar mensaje de error al enviar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const formulario = document.querySelector('form');
+
+      formulario.addEventListener('submit', function (event) {
+        event.preventDefault(); // Detiene el envío del formulario
+        alert('¡Error! Estamos trabajando en ello. Falta implementar el backend.');
+      });
+    });
+  </script>
 </body>
 </html>
-
