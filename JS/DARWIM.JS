@@ -1,14 +1,15 @@
-document.getElementById("calcular").addEventListener("click", function() {
-    let num1 = parseFloat(document.getElementById("numero1").value); // 8
-    let num2 = parseFloat(document.getElementById("numero2").value); // 2
-    let operacion = document.getElementById("operacion").value; // suma
+document.getElementById("calcular").addEventListener("click", function () {
+    let num1 = parseFloat(document.getElementById("numero1").value);
+    let num2 = parseFloat(document.getElementById("numero2").value);
+    let operacion = document.getElementById("operacion").value;
     let resultado = document.getElementById("resultado");
 
     // Validación para evitar valores vacíos o no numéricos
     if (isNaN(num1) || isNaN(num2)) {
-        resultado.textContent = "Ingrese numeros validos";
+        resultado.textContent = "Ingrese números válidos";
         return;
     }
+
     function calcular(a, b, op) {
         switch (op) {
             case "suma":
@@ -23,10 +24,10 @@ document.getElementById("calcular").addEventListener("click", function() {
                 }
                 return a / b;
             default:
-                return "Operacion invalida";
+                return "Operación inválida";
         }
     }
 
     let resultadoFinal = calcular(num1, num2, operacion);
-    resultado.textContent = "El Resultado es: " + resultadoFinal;
-})
+    resultado.textContent = "El resultado es: " + resultadoFinal;
+});
