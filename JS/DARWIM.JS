@@ -6,10 +6,9 @@ document.getElementById("calcular").addEventListener("click", function() {
 
     // Validación para evitar valores vacíos o no numéricos
     if (isNaN(num1) || isNaN(num2)) {
-        resultado.textContent = "Ingrese números válidos";
+        resultado.textContent = "Ingrese numeros validos";
         return;
     }
-
     function calcular(a, b, op) {
         switch (op) {
             case "suma":
@@ -24,10 +23,10 @@ document.getElementById("calcular").addEventListener("click", function() {
                 }
                 return a / b;
             default:
-                return "Operación inválida";
+                return "Operacion invalida";
         }
     }
 
     let resultadoFinal = calcular(num1, num2, operacion);
     resultado.textContent = "El Resultado es: " + resultadoFinal;
-});
+})
