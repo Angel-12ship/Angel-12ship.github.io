@@ -21,7 +21,7 @@
             <li><a href="pagina web 2.html">Ir a Segunda Página</a></li>
             <li><a href="pagina web 3.html">Ir a Tercera Página</a></li>
             <li><a href="pagina web 4.html">Ir a la Cuarta Página</a></li>
-            <li><a href="pagina web 5 .html">Ir a la Quinta Página</a></li>
+            <li><a href="pagina web 5.html">Ir a la Quinta Página</a></li>
             <li><a href="pagina web 6.html">Ir a la Sexta Página</a></li>
             <li><a href="subir entregable.html">Subir Entregable</a></li>
             <li><a href="bootstrap/bootstrap.html">Bootstrap</a></li>
@@ -50,9 +50,6 @@
             <button id="calcular">Calcular</button>
             <p id="resultado"></p>
         </article>
-         <button id="calcular">Calcular</button>
-            <p id="resultado"></p>
-        </article>
 
         <article>
             <h2>Calculadora de Descuento</h2>
@@ -74,11 +71,47 @@
         </article>
     </section>
 
-        <aside></aside>
-    </section>
+    <aside></aside>
 
     <footer>
         <p>© 2025 Todos los Derechos Reservados.</p>
     </footer>
+
+    <script>
+        // Código para la Calculadora Básica con JS
+        document.getElementById('calcular').addEventListener('click', function() {
+            const n1 = parseFloat(document.getElementById('numero1').value);
+            const n2 = parseFloat(document.getElementById('numero2').value);
+            const operacion = document.getElementById('operacion').value;
+            let resultado;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                resultado = 'Por favor ingrese ambos números correctamente.';
+            } else {
+                switch(operacion) {
+                    case 'suma':
+                        resultado = n1 + n2;
+                        break;
+                    case 'resta':
+                        resultado = n1 - n2;
+                        break;
+                    case 'multiplicacion':
+                        resultado = n1 * n2;
+                        break;
+                    case 'division':
+                        if (n2 === 0) {
+                            resultado = 'Error: División por cero.';
+                        } else {
+                            resultado = n1 / n2;
+                        }
+                        break;
+                    default:
+                        resultado = 'Operación no válida.';
+                }
+            }
+            document.getElementById('resultado').textContent = `Resultado: ${resultado}`;
+        });
+
+    </script>
 </body>
 </html>

@@ -1,32 +1,36 @@
-// Cambia la imagen del emoji a "feliz"
 function feliz() {
     console.log("Función feliz ejecutada");
-    document.getElementById('estado').src = 'images/feliz.jpg';
+    const estado = document.getElementById('estado');
+    if (estado) estado.src = 'images/feliz.jpg';
+    else console.warn("No se encontró el elemento con id 'estado'");
 }
 
-// Cambia la imagen del emoji a "triste"
 function triste() {
     console.log("Función triste ejecutada");
-    document.getElementById('estado').src = 'images/triste.jpg';
+    const estado = document.getElementById('estado');
+    if (estado) estado.src = 'images/triste.jpg';
+    else console.warn("No se encontró el elemento con id 'estado'");
 }
 
-// Cambia el color del subtítulo a rojo
 function cambiarColor() {
     console.log("Función cambiarColor ejecutada");
-    document.getElementById('subtitulo').style.color = 'red';
+    const subtitulo = document.getElementById('subtitulo');
+    if (subtitulo) subtitulo.style.color = 'red';
+    else console.warn("No se encontró el elemento con id 'subtitulo'");
 }
 
-// Cambia el texto del subtítulo y el fondo del encabezado
 function cambiarTexto() {
     console.log("Función cambiarTexto ejecutada");
     const subtitulo = document.getElementById('subtitulo');
     const encabezado = document.getElementById('encabezado');
 
-    subtitulo.textContent = "YA LE SE AL JS";
-    encabezado.style.backgroundColor = '#0b1494';
+    if (subtitulo) subtitulo.textContent = "YA LE SE AL JS";
+    else console.warn("No se encontró el elemento con id 'subtitulo'");
+
+    if (encabezado) encabezado.style.backgroundColor = '#0b1494';
+    else console.warn("No se encontró el elemento con id 'encabezado'");
 }
 
-// Muestra mensaje y realiza operaciones básicas
 function mostrarMensaje() {
     console.log("Función mostrarMensaje ejecutada");
     console.log("Hola Mundo");
@@ -37,7 +41,6 @@ function mostrarMensaje() {
     alert(`La suma de A + B es: ${A + B}`);
 }
 
-// Cambia el logo por otra imagen (asegúrate de tener un elemento con id="logo")
 function cambiarImagen() {
     console.log("Función cambiarImagen ejecutada");
     const logo = document.getElementById("logo");
@@ -48,18 +51,15 @@ function cambiarImagen() {
     }
 }
 
-// Activa modo oscuro
 function modoOscuro() {
     console.log("Función modoOscuro ejecutada");
     document.body.style.backgroundColor = "black";
     document.body.style.color = "white";
 }
 
-// Alterna entre fondo blanco y azul claro
 function cambiarFondo() {
     const actual = getComputedStyle(document.body).backgroundColor;
     console.log(`Función cambiarFondo ejecutada. Fondo actual: ${actual}`);
-    // Compara el color rgb para azul claro (lightblue)
     if (actual === 'rgb(173, 216, 230)') {
         document.body.style.backgroundColor = 'white';
     } else {
@@ -67,16 +67,37 @@ function cambiarFondo() {
     }
 }
 
-// Simula una captura de pantalla con efecto visual
 function sugerirCaptura() {
     console.log("Función sugerirCaptura ejecutada");
     const marco = document.createElement("div");
     marco.className = "captura-simulada";
+    Object.assign(marco.style, {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "rgba(0,0,0,0.5)",
+        zIndex: 9999,
+    });
     document.body.appendChild(marco);
 
     const mensaje = document.createElement("div");
     mensaje.className = "mensaje-captura";
     mensaje.textContent = "Simulación de captura realizada 📸";
+    Object.assign(mensaje.style, {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "white",
+        padding: "20px",
+        borderRadius: "8px",
+        fontSize: "1.5rem",
+        fontWeight: "bold",
+        zIndex: 10000,
+        boxShadow: "0 0 15px rgba(0,0,0,0.3)"
+    });
     document.body.appendChild(mensaje);
 
     setTimeout(() => {
@@ -86,7 +107,6 @@ function sugerirCaptura() {
     }, 2000);
 }
 
-// Cambia el texto del título <h1> por una frase divertida al azar
 function cambiarTitulo() {
     console.log("Función cambiarTitulo ejecutada");
     const frases = [
@@ -99,11 +119,12 @@ function cambiarTitulo() {
         "Programando con estilo 😎"
     ];
     const indice = Math.floor(Math.random() * frases.length);
-    document.querySelector("h1").textContent = frases[indice];
+    const h1 = document.querySelector("h1");
+    if (h1) h1.textContent = frases[indice];
+    else console.warn("No se encontró un elemento <h1>");
     console.log(`Título cambiado a: ${frases[indice]}`);
 }
 
-// Cambia la fuente del <h1> dentro del encabezado #encabezado
 function cambiarFuente() {
     const fuentes = [
         'Arial, sans-serif',
@@ -113,6 +134,10 @@ function cambiarFuente() {
         'Tahoma, sans-serif'
     ];
     const encabezado = document.querySelector('#encabezado h1');
+    if (!encabezado) {
+        console.warn("No se encontró el elemento '#encabezado h1'");
+        return;
+    }
     let fuenteActual = getComputedStyle(encabezado).fontFamily.toLowerCase().replace(/["']/g, "");
     let nuevaFuente;
     do {
@@ -121,22 +146,23 @@ function cambiarFuente() {
     encabezado.style.fontFamily = nuevaFuente;
     console.log(`Fuente cambiada de "${fuenteActual}" a "${nuevaFuente}"`);
 }
- function calcularDescuento() {
-            const montoInput = document.getElementById("montoCompra");
-            const resultadoDiv = document.getElementById("resultadoDescuento");
-            const monto = parseFloat(montoInput.value);
 
-            if (isNaN(monto) || monto <= 0) {
-                resultadoDiv.innerHTML = "<p style='color:red;'>Por favor, ingrese un monto válido mayor a cero.</p>";
-                return;
-            }
+function calcularDescuento() {
+    const montoInput = document.getElementById("montoCompra");
+    const resultadoDiv = document.getElementById("resultadoDescuento");
+    const monto = parseFloat(montoInput.value);
 
-            const descuento = monto > 1000 ? monto * 0.10 : 0;
-            const totalPagar = monto - descuento;
+    if (isNaN(monto) || monto <= 0) {
+        resultadoDiv.innerHTML = "<p style='color:red;'>Por favor, ingrese un monto válido mayor a cero.</p>";
+        return;
+    }
 
-            resultadoDiv.innerHTML = `
-                <p><strong>Total sin descuento:</strong> S/.${monto.toFixed(2)}</p>
-                <p><strong>Descuento aplicado:</strong> S/.${descuento.toFixed(2)}</p>
-                <p><strong>Total a pagar:</strong> S/.${totalPagar.toFixed(2)}</p>
-            `;
-        }
+    const descuento = monto > 1000 ? monto * 0.10 : 0;
+    const totalPagar = monto - descuento;
+
+    resultadoDiv.innerHTML = `
+        <p><strong>Total sin descuento:</strong> S/.${monto.toFixed(2)}</p>
+        <p><strong>Descuento aplicado:</strong> S/.${descuento.toFixed(2)}</p>
+        <p><strong>Total a pagar:</strong> S/.${totalPagar.toFixed(2)}</p>
+    `;
+}
