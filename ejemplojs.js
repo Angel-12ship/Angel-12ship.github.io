@@ -121,3 +121,22 @@ function cambiarFuente() {
     encabezado.style.fontFamily = nuevaFuente;
     console.log(`Fuente cambiada de "${fuenteActual}" a "${nuevaFuente}"`);
 }
+ function calcularDescuento() {
+            const montoInput = document.getElementById("montoCompra");
+            const resultadoDiv = document.getElementById("resultadoDescuento");
+            const monto = parseFloat(montoInput.value);
+
+            if (isNaN(monto) || monto <= 0) {
+                resultadoDiv.innerHTML = "<p style='color:red;'>Por favor, ingrese un monto válido mayor a cero.</p>";
+                return;
+            }
+
+            const descuento = monto > 1000 ? monto * 0.10 : 0;
+            const totalPagar = monto - descuento;
+
+            resultadoDiv.innerHTML = `
+                <p><strong>Total sin descuento:</strong> S/.${monto.toFixed(2)}</p>
+                <p><strong>Descuento aplicado:</strong> S/.${descuento.toFixed(2)}</p>
+                <p><strong>Total a pagar:</strong> S/.${totalPagar.toFixed(2)}</p>
+            `;
+        }

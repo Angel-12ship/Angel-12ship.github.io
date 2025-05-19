@@ -50,23 +50,29 @@
             <button id="calcular">Calcular</button>
             <p id="resultado"></p>
         </article>
-         </select><br>
-                    <button id="calcular">Calcular</button>
-                    <p id = "resultado"></p>
+         <button id="calcular">Calcular</button>
+            <p id="resultado"></p>
+        </article>
 
+        <article>
+            <h2>Calculadora de Descuento</h2>
 
+            <p>Un comercio ofrece un 10% de descuento si el cliente compra más de S/.1000.</p>
+            <p>Solicita al usuario el monto total de su compra y muestra en pantalla:</p>
+            <ul>
+                <li>El total sin descuento</li>
+                <li>El descuento aplicado (si corresponde)</li>
+                <li>El total a pagar</li>
+            </ul>
 
-            </article>
-            <article>
-                <p>Un comercio ofrece un 10% de descuento si el cliente compra más de S/.1000.
-                Solicita al usuario el monto total de su compra y muestra en pantalla:<br>
-                -El total sin descuento<br>
-                -El descuento aplicado (si corresponde)<br>
-                -El total a pagar</p>
-            </article>
-            
-            <aside> </aside>
-        </section>
+            <label for="montoCompra">Monto total de la compra (S/.):</label><br>
+            <input type="number" id="montoCompra" placeholder="Ingrese el monto" min="0" step="0.01"><br>
+
+            <button onclick="calcularDescuento()">Calcular Descuento</button>
+
+            <div id="resultadoDescuento" style="margin-top: 20px;"></div>
+        </article>
+    </section>
 
         <aside></aside>
     </section>
