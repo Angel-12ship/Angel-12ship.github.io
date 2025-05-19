@@ -7,7 +7,6 @@
     <link rel="icon" href="images/senati.png" type="image/png">
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="JS/DARWIM.JS" defer></script>
 </head>
 <body>
     <header>
@@ -65,7 +64,7 @@
             <label for="montoCompra">Monto total de la compra (S/.):</label><br>
             <input type="number" id="montoCompra" placeholder="Ingrese el monto" min="0" step="0.01"><br>
 
-            <button onclick="calcularDescuento()">Calcular Descuento</button>
+            <button id="btnDescuento">Calcular Descuento</button>
 
             <div id="resultadoDescuento" style="margin-top: 20px;"></div>
         </article>
@@ -76,7 +75,3 @@
     <footer>
         <p>© 2025 Todos los Derechos Reservados.</p>
     </footer>
-
-    
-</body>
-</html>
