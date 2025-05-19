@@ -7,6 +7,7 @@
     <link rel="icon" href="images/senati.png" type="image/png">
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <script defer src="JS/DARWIM.JS"></script>
 </head>
 <body>
     <header>
@@ -51,7 +52,7 @@
         </article>
 
         <article>
-            <h2>Calculadora de Descuento</h2>
+            <h2>Calculadora de Descuento </h2>
 
             <p>Un comercio ofrece un 10% de descuento si el cliente compra más de S/.1000.</p>
             <p>Solicita al usuario el monto total de su compra y muestra en pantalla:</p>
@@ -76,10 +77,9 @@
         <p>© 2025 Todos los Derechos Reservados.</p>
     </footer>
 
-    <!-- ✅ Script embebido para ambas calculadoras -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Calculadora básica
+            
             document.getElementById("calcular").addEventListener("click", function () {
                 let num1 = parseFloat(document.getElementById("numero1").value);
                 let num2 = parseFloat(document.getElementById("numero2").value);
@@ -113,7 +113,7 @@
                 resultado.textContent = "El resultado es: " + resultadoFinal;
             });
 
-            // Calculadora de descuento
+         
             document.getElementById("btnDescuento").addEventListener("click", function () {
                 let monto = parseFloat(document.getElementById("montoCompra").value);
                 let resultadoDescuento = document.getElementById("resultadoDescuento");
