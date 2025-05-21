@@ -1,71 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EcoMarket - Tu tienda de productos orgánicos de alta calidad">
-  <title>EcoMarket - Sección de Frutas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EcoMarket - Frutas Orgánicas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    .product-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      max-height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: bold;
+      color: #28a745;
+    }
+    .btn-eco {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+    }
+    .btn-eco:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Sección de Frutas -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Frutas Orgánicas</h2>
-      <div class="row g-4">
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Frutas Orgánicas</h2>
+    <div class="row g-4">
 
-        <!-- Fruta 1: Manzanas -->
-        <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center">
-            <img src="https://static.vecteezy.com/system/resources/previews/024/127/991/large_2x/fresh-red-apple-with-leaf-isolated-on-transparent-background-ai-generated-free-png.png" class="card-img-top" alt="Manzanas Orgánicas">
-            <div class="card-body">
-              <h5 class="card-title">Manzanas Orgánicas</h5>
-              <p class="card-text">Crujientes, dulces y libres de pesticidas.</p>
-              <a href="manzanas.html" class="btn btn-success">Ver más</a>
-            </div>
+      <!-- Manzana Roja Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://static.vecteezy.com/system/resources/previews/024/127/991/large_2x/fresh-red-apple-with-leaf-isolated-on-transparent-background-ai-generated-free-png.png" alt="Manzana Roja Orgánica" class="img-fluid">
+          <h5>Manzana Roja Orgánica</h5>
+          <p class="text-muted small mb-1">Manzanas dulces, cultivadas sin pesticidas</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$3.49</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
           </div>
         </div>
-
-        <!-- Fruta 2: Bananas -->
-        <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center">
-            <img src="https://cdn.pixabay.com/photo/2017/01/20/15/06/banana-1995073_960_720.png" class="card-img-top" alt="Bananas Orgánicas">
-            <div class="card-body">
-              <h5 class="card-title">Bananas Orgánicas</h5>
-              <p class="card-text">Ricas en potasio y energía natural.</p>
-              <a href="bananas.html" class="btn btn-success">Ver más</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fruta 3: Fresas -->
-        <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center">
-            <img src="https://www.pngmart.com/files/1/Strawberry-PNG.png" class="card-img-top" alt="Fresas Orgánicas">
-            <div class="card-body">
-              <h5 class="card-title">Fresas Orgánicas</h5>
-              <p class="card-text">Deliciosas, jugosas y naturales.</p>
-              <a href="fresas.html" class="btn btn-success">Ver más</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fruta 4: Uvas -->
-        <div class="col-md-3 col-sm-6">
-          <div class="card h-100 text-center">
-            <img src="https://purepng.com/public/uploads/large/purepng.com-grapesgrapesfruitpurplegrape-9815251082490zoqg.png" class="card-img-top" alt="Uvas Orgánicas">
-            <div class="card-body">
-              <h5 class="card-title">Uvas Orgánicas</h5>
-              <p class="card-text">Ideales para snacks saludables.</p>
-              <a href="uvas.html" class="btn btn-success">Ver más</a>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-</body>
-</html>
+      <!-- Banana Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://cdn.pixabay.com/photo/2017/01/20/15/06/banana-1995073_960_720.png" alt="Banana Orgánica" class="img-fluid">
+          <h5>Banana Orgánica</h5>
+          <p class="text-muted small mb-1">Ricas en potasio y energía natural</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$2.99</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fresa Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/1/Strawberry-PNG.png" alt="Fresa Orgánica" class="img-fluid">
+          <h5>Fresa Orgánica</h5>
+          <p class="text-muted small mb-1">Deliciosas, jugosas y naturales</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$4.50</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uva Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://purepng.com/public/uploads/large/purepng.com-grapesgrapesfruitpurplegrape-9815251082490zoqg.png" alt="Uva Orgánica" class="img-fluid">
+          <h5>Uva Orgánica</h5>
+          <p class="text-muted small mb-1">Ideales para snacks saludables</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$3.99</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pera Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.freepngimg.com/thumb/pear/1-2-pear-png-image.png" alt="Pera Orgánica" class="img-fluid">
+          <h5>Pera Orgánica</h5>
+          <p class="text-muted small mb-1">Jugosas y ricas en fibra natural</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$3.25</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mango Orgánico -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/5/Mango-PNG-Image.png" alt="Mango Orgánico" class="img-fluid">
+          <h5>Mango Orgánico</h5>
+          <p class="text-muted small mb-1">Dulces y ricos en vitamina C</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$4.00</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kiwi Orgánico -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/1/Kiwi-PNG-Image.png" alt="Kiwi Orgánico" class="img-fluid">
+          <h5>Kiwi Orgánico</h5>
+          <p class="text-muted small mb-1">Exóticos y llenos de antioxidantes</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$5.50</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Piña Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/1/Pineapple-PNG-Image.png" alt="Piña Orgánica" class="img-fluid">
+          <h5>Piña Orgánica</h5>
+          <p class="text-muted small mb-1">Refrescante y rica en enzimas naturales</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$3.75</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sandía Orgánica -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/1/Watermelon-PNG-Image.png" alt="Sandía Orgánica" class="img-fluid">
+          <h5>Sandía Orgánica</h5>
+          <p class="text-muted small mb-1">Hidratante y perfecta para el verano</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$2.50</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Melón Orgánico -->
+      <div class="col-md-3 col-sm-6">
+        <div class="product-card">
+          <img src="https://www.pngmart.com/files/1/Melon-PNG-Image.png" alt="Melón Orgánico" class="img-fluid">
+          <h5>Melón Orgánico</h5>
+          <p class="text-muted small mb-1">Dulce y bajo en calorías</p>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <span class="price">$2.80</span>
+            <span class="text-muted ms-2">/ kg</span>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-eco">
+ 
