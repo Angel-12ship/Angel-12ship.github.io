@@ -1,131 +1,736 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog EcoMarket - Vida Orgánica</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoMarket - Tu tienda de productos orgánicos de alta calidad">
+  <title>EcoMarket - Productos Orgánicos</title>
+  <link rel="icon" href="" alt="EcoMarket Logo">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #4CAF50;
+      --color-secondary: #8BC34A;
+      --color-accent: #FFC107;
+      --color-dark: #2E7D32;
+      --color-light: #F1F8E9;
+      --color-gray: #757575;
+      --radius: 8px;
+      --transition: 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #FAFAFA;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--color-light);
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo-container img {
+      max-height: 60px;
+    }
+    
+    .navbar {
+      background-color: var(--color-primary);
+      padding: 0.5rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+      color: white;
+      font-weight: 500;
+      padding: 0.8rem 1.2rem;
+      transition: background-color var(--transition);
+    }
+    
+    .navbar-nav .nav-link:hover {
+      background-color: var(--color-dark);
+      border-radius: var(--radius);
+    }
+    
+    .search-bar {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .search-bar input {
+      border-radius: 50px;
+      padding-left: 20px;
+      border: 1px solid #ddd;
+    }
+    
+    .search-bar button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      border-radius: 50px;
+      background-color: var(--color-accent);
+      border: none;
+      color: #333;
+      padding: 5px 15px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/api/placeholder/1920/500');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 4rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .btn-eco {
+      background-color: var(--color-accent);
+      color: #333;
+      font-weight: 600;
+      padding: 10px 25px;
+      border-radius: 50px;
+      border: none;
+      transition: all var(--transition);
+    }
+    
+    .btn-eco:hover {
+      background-color: #FFD54F;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Categories Section */
+    .categories-section {
+      padding: 3rem 0;
+    }
+    
+    .category-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform var(--transition);
+      height: 100%;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .category-card img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .category-card .card-body {
+      background-color: white;
+      padding: 1.5rem;
+    }
+    
+    .section-title {
+      position: relative;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--color-accent);
+    }
+    
+    /* Featured Products */
+    .products-section {
+      background-color: var(--color-light);
+      padding: 3rem 0;
+    }
+    
+    .product-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: all var(--transition);
+      background-color: white;
+      height: 100%;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .product-card img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+    .price {
+      font-weight: bold;
+      color: var(--color-dark);
+      font-size: 1.2rem;
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: var(--color-gray);
+      margin-right: 8px;
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--color-accent);
+      color: #333;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: var(--radius);
+    }
+    
+    .eco-badge {
+      display: inline-block;
+      background-color: var(--color-secondary);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 5px;
+    }
+    
+    /* About Section */
+    .about-section {
+      padding: 4rem 0;
+    }
+    
+    .about-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .about-img img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .about-content h2 {
+      color: var(--color-dark);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-box {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-icon {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-right: 1rem;
+      min-width: 30px;
+    }
+    
+    /* Testimonials */
+    .testimonials-section {
+      background-color: var(--color-light);
+      padding: 4rem 0;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      height: 100%;
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+    
+    .stars {
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    
+    /* Newsletter */
+    .newsletter-section {
+      padding: 4rem 0;
+      background-color: var(--color-primary);
+      color: white;
+    }
+    
+    .newsletter-form {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .newsletter-form input {
+      border-radius: 50px;
+      padding: 15px 20px;
+      border: none;
+      width: 100%;
+    }
+    
+    .newsletter-form button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      border-radius: 50px;
+      background-color: var(--color-dark);
+      border: none;
+      color: white;
+      padding: 10px 25px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--color-accent);
+    }
+    
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    footer ul li {
+      margin-bottom: 10px;
+    }
+    
+    footer ul li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    
+    footer ul li a:hover {
+      color: var(--color-accent);
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 36px;
+      margin-right: 10px;
+      transition: all var(--transition);
+      color: white;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--color-accent);
+      color: #333;
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Responsive */
+    @media (max-width: 767.98px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .about-img {
+        margin-bottom: 2rem;
+      }
+      
+      .newsletter-form button {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+      }
+      
+      .footer-col {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .animate-fadeIn {
+      animation: fadeIn 1s ease;
+    }
+    
+    #cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: var(--color-accent);
+      color: #333;
+      font-size: 0.7rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .cart-btn {
+      position: relative;
+    }
+    
+    /* Float Animation for CTAs */
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
+    /* POPUP PROMOCIONAL STYLES */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
 
-        .header {
-            background: #4CAF50;
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    .popup-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+    .promo-popup {
+      background: linear-gradient(135deg, #4CAF50, #66BB6A);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      text-align: center;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .popup-overlay.show .promo-popup {
+      transform: scale(1);
+    }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            overflow: hidden;
-        }
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
 
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    .close-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-        .category-icons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
+    .badge {
+      background: #FF5722;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: inline-block;
+      box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+    }
 
-        .category-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
+    .popup-title {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
 
-        .category-icon:hover {
-            transform: scale(1.2);
-        }
+    .popup-subtitle {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
 
-        .category-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .product-info {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+    }
 
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+    .product-name {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
+    .product-description {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
 
-        .nav-menu a:hover {
-            opacity: 0.8;
-        }
-    </style>
+    .price-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .popup-original-price {
+      color: white;
+      font-size: 18px;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .discount-price {
+      background: white;
+      color: #4CAF50;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .discount-badge-popup {
+      background: #FF5722;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 20px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+
+    .fruit-images {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .fruit-item {
+      text-align: center;
+      color: white;
+    }
+
+    .fruit-emoji {
+      font-size: 40px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .fruit-name {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      background: #FF5722;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
+    }
+
+    .timer {
+      color: white;
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+
+    .eco-logo-popup {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .logo-container-popup {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo-leaves {
+      font-size: 18px;
+      color: #4CAF50;
+    }
+    
+    .logo-text {
+      color: #2E7D32;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo-cart {
+      color: #FF9800;
+      font-size: 16px;
+      margin-left: 2px;
+    }
+    
+    .logo-tagline {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .promo-popup {
+        padding: 30px 20px;
+      }
+      
+      .popup-title {
+        font-size: 28px;
+      }
+      
+      .discount-price {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
     <header class="header">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <img src="ECOMARKET/LOGO DE mercado.png" alt="EcoMarket Logo" />
-                </div>
+                <div class="logo-icon">🌱</div>
                 EcoMarket Blog
             </div>
-            
-            <div class="category-icons">
-                <a href="#alimentacion" class="category-icon" title="Alimentación">
-                    <img src="https://media.ambito.com/p/8c7d2b7e06bc75cb6a6f99369d78864b/adjuntos/239/imagenes/039/156/0039156476/alimentacion-saludablejpg.jpg" alt="Alimentación">
-                </a>
-                <a href="#recetas" class="category-icon" title="Recetas">
-                    <img src="https://sabrosano.com/wp-content/uploads/2022/09/Foto-Cuadrada-Fideo-con-Verdura-y-Carne.jpg" alt="Recetas">
-                </a>
-                <a href="#bienestar" class="category-icon" title="Bienestar">
-                    <img src="https://www.infoalimentos.org.ar/images/temas_21/salud_alimentos/TEMA_Adolescencia_presentacion_400x300.jpg" alt="Bienestar">
-                </a>
-                <a href="#nutricion" class="category-icon" title="Nutrición">
-                    <img src="https://postgradomedicina.com/wp-content/uploads/master-en-nutricion-400x300.jpg" alt="Nutrición">
-                </a>
-            </div>
-
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#inicio">Inicio</a></li>
@@ -137,5 +742,198 @@
             </nav>
         </div>
     </header>
+
+    <section class="hero-section" id="inicio">
+        <div class="hero-content">
+            <h1>Vida Orgánica Consciente</h1>
+            <p>Descubre el mundo de la alimentación sostenible, recetas saludables y consejos para un estilo de vida más verde y consciente</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="blog-section" id="articulos">
+            <h2 class="section-title">Últimos Artículos</h2>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image" style="background-image: linear-gradient(45deg, #4CAF50, #81C784); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%234CAF50&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%2381C784&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;70&quot; cy=&quot;70&quot; r=&quot;20&quot; opacity=&quot;0.3&quot;/><circle fill=&quot;white&quot; cx=&quot;280&quot; cy=&quot;50&quot; r=&quot;15&quot; opacity=&quot;0.2&quot;/></svg>');">
+                        <span class="blog-date">22 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Alimentación</div>
+                        <h3 class="blog-title">Los Beneficios de los Superalimentos Orgánicos</h3>
+                        <p class="blog-excerpt">Descubre cómo los superalimentos pueden transformar tu salud y energía diaria. Conoce las propiedades de la quinoa, chía y otros alimentos extraordinarios.</p>
+                        <div class="blog-meta">
+                            <span>Por María González</span>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(45deg, #FF6B6B, #FF8E8E); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%23FF6B6B&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%23FF8E8E&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;100&quot; cy=&quot;80&quot; r=&quot;15&quot; opacity=&quot;0.4&quot;/><circle fill=&quot;white&quot; cx=&quot;250&quot; cy=&quot;60&quot; r=&quot;10&quot; opacity=&quot;0.3&quot;/></svg>');">
+                        <span class="blog-date">20 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Recetas</div>
+                        <h3 class="blog-title">5 Smoothies Detox para Empezar el Día</h3>
+                        <p class="blog-excerpt">Recetas deliciosas y nutritivas que te ayudarán a depurar tu organismo mientras disfrutas de sabores increíbles cada mañana.</p>
+                        <div class="blog-meta">
+                            <span>Por Chef Ana Ruiz</span>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(45deg, #9C27B0, #BA68C8); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%239C27B0&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%23BA68C8&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;80&quot; cy=&quot;90&quot; r=&quot;18&quot; opacity=&quot;0.3&quot;/><circle fill=&quot;white&quot; cx=&quot;270&quot; cy=&quot;70&quot; r=&quot;12&quot; opacity=&quot;0.4&quot;/></svg>');">
+                        <span class="blog-date">18 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Sostenibilidad</div>
+                        <h3 class="blog-title">Cómo Crear tu Huerto Urbano en Casa</h3>
+                        <p class="blog-excerpt">Guía completa para cultivar tus propios vegetales orgánicos en espacios pequeños. Tips, herramientas y secretos de jardinería urbana.</p>
+                        <div class="blog-meta">
+                          
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(45deg, #FF9800, #FFB74D); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%23FF9800&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%23FFB74D&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;120&quot; cy=&quot;60&quot; r=&quot;16&quot; opacity=&quot;0.3&quot;/><circle fill=&quot;white&quot; cx=&quot;230&quot; cy=&quot;90&quot; r=&quot;14&quot; opacity=&quot;0.4&quot;/></svg>');">
+                        <span class="blog-date">22 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Bienestar</div>
+                        <h3 class="blog-title">Mindful Eating: Alimentación Consciente</h3>
+                        <p class="blog-excerpt">Aprende a conectar con tu comida de manera profunda y consciente. Técnicas para disfrutar cada bocado y mejorar tu relación con la alimentación.</p>
+                        <div class="blog-meta">
+                            <span>Por Dr. Patricia Medina</span>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(45deg, #2196F3, #64B5F6); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%232196F3&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%2364B5F6&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;90&quot; cy=&quot;70&quot; r=&quot;12&quot; opacity=&quot;0.4&quot;/><circle fill=&quot;white&quot; cx=&quot;260&quot; cy=&quot;80&quot; r=&quot;18&quot; opacity=&quot;0.3&quot;/></svg>');">
+                        <span class="blog-date">12 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Medio Ambiente</div>
+                        <h3 class="blog-title">Reducir el Plástico en la Cocina</h3>
+                        <p class="blog-excerpt">Alternativas ecológicas para eliminar el plástico de tu cocina. Soluciones prácticas para un hogar más sostenible y respetuoso con el planeta.</p>
+                        <div class="blog-meta">
+                            <span>Por Carmen López</span>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image" style="background: linear-gradient(45deg, #E91E63, #F06292); background-image: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 350 200&quot;><rect fill=&quot;%23E91E63&quot; width=&quot;350&quot; height=&quot;200&quot;/><path fill=&quot;%23F06292&quot; d=&quot;M0,200 Q175,150 350,200 L350,0 L0,0 Z&quot;/><circle fill=&quot;white&quot; cx=&quot;110&quot; cy=&quot;50&quot; r=&quot;14&quot; opacity=&quot;0.3&quot;/><circle fill=&quot;white&quot; cx=&quot;240&quot; cy=&quot;100&quot; r=&quot;16&quot; opacity=&quot;0.4&quot;/></svg>');">
+                        <span class="blog-date">10 May</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-category">Nutrición</div>
+                        <h3 class="blog-title">Proteínas Vegetales: Mitos y Realidades</h3>
+                        <p class="blog-excerpt">Todo lo que necesitas saber sobre las proteínas de origen vegetal. Desmontamos mitos y te mostramos las mejores fuentes vegetales de proteína.</p>
+                        <div class="blog-meta">
+                            <span>Por Nutri. Sara Jiménez</span>
+                            <a href="#" class="read-more">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <div class="container">
+                <div class="featured-card">
+                    <div class="featured-image"></div>
+                    <div>
+                        <h3 style="color: #4CAF50; font-size: 1.8rem; margin-bottom: 1rem;">Artículo Destacado</h3>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: #333;">La Revolución Verde en tu Mesa</h2>
+                        <p style="color: #666; margin-bottom: 1.5rem; font-size: 1.1rem;">Descubre cómo pequeños cambios en tu alimentación pueden generar un gran impacto positivo en tu salud y en el medio ambiente. Una guía completa para transformar tu estilo de vida.</p>
+                        <a href="#" style="background: #4CAF50; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; display: inline-block; transition: background 0.3s;">Leer artículo completo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="newsletter">
+        <div class="container">
+            <h3>🌱 Suscríbete a Nuestra Newsletter</h3>
+            <p>Recibe los mejores consejos, recetas y noticias sobre vida orgánica directamente en tu correo</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">RSS</a>
+                <a href="#">Contacto</a>
+            </div>
+            <p>&copy; 2025 EcoMarket Blog. Todos los derechos reservados. 🌿</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            if (email) {
+                alert('¡Gracias por suscribirte! Te enviaremos contenido increíble sobre vida orgánica.');
+                this.querySelector('input').value = '';
+            }
+        });
+
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Aplicar animación a las tarjetas del blog
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
 
     
