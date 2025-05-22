@@ -465,15 +465,328 @@
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0px); }
     }
+
+    /* POPUP PROMOCIONAL STYLES */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .popup-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .promo-popup {
+      background: linear-gradient(135deg, #4CAF50, #66BB6A);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      text-align: center;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    .popup-overlay.show .promo-popup {
+      transform: scale(1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .badge {
+      background: #FF5722;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: inline-block;
+      box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+    }
+
+    .popup-title {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .popup-subtitle {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .product-info {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .product-name {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .product-description {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .price-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .popup-original-price {
+      color: white;
+      font-size: 18px;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .discount-price {
+      background: white;
+      color: #4CAF50;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .discount-badge-popup {
+      background: #FF5722;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 20px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+
+    .fruit-images {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .fruit-item {
+      text-align: center;
+      color: white;
+    }
+
+    .fruit-emoji {
+      font-size: 40px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .fruit-name {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      background: #FF5722;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
+    }
+
+    .timer {
+      color: white;
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: 0.9;
+    }
+
+    .eco-logo-popup {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .logo-container-popup {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo-leaves {
+      font-size: 18px;
+      color: #4CAF50;
+    }
+    
+    .logo-text {
+      color: #2E7D32;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+    }
+    
+    .logo-cart {
+      color: #FF9800;
+      font-size: 16px;
+      margin-left: 2px;
+    }
+    
+    .logo-tagline {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 480px) {
+      .promo-popup {
+        padding: 30px 20px;
+      }
+      
+      .popup-title {
+        font-size: 28px;
+      }
+      
+      .discount-price {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- POPUP PROMOCIONAL -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="promo-popup">
+      <button class="close-btn" onclick="closePromo()">&times;</button>
+      
+      <div class="badge">¡Oferta Especial!</div>
+      
+      <h1 class="popup-title">FRUTAS ORGÁNICAS<br>FRESCAS</h1>
+      <p class="popup-subtitle">Directo del campo a tu mesa</p>
+      
+      <div class="product-info">
+        <div class="product-name">Pack Frutas Mixtas Orgánicas</div>
+        <div class="product-description">Selección premium de frutas de temporada cultivadas naturalmente</div>
+        
+        <div class="fruit-images">
+          <div class="fruit-item">
+            <span class="fruit-emoji">🥑</span>
+            <div class="fruit-name">Palta</div>
+          </div>
+          <div class="fruit-item">
+            <span class="fruit-emoji">🍌</span>
+            <div class="fruit-name">Plátano</div>
+          </div>
+          <div class="fruit-item">
+            <span class="fruit-emoji">🍎</span>
+            <div class="fruit-name">Manzana</div>
+          </div>
+          <div class="fruit-item">
+            <span class="fruit-emoji">🍊</span>
+            <div class="fruit-name">Naranja</div>
+          </div>
+        </div>
+        
+        <div class="price-container">
+          <span class="popup-original-price">S/. 45.00</span>
+          <div style="position: relative;">
+            <div class="discount-price">S/. 29.90</div>
+            <div class="discount-badge-popup">-33%</div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="cta-button" onclick="buyNow()">COMPRAR AHORA</button>
+      
+      <div class="timer">⏰ Oferta válida por tiempo limitado</div>
+      
+      <div class="eco-logo-popup">
+        <div class="logo-container-popup">
+          <span class="logo-leaves">🌿</span>
+          <span class="logo-text">ECOMARK<span class="logo-cart">🛒</span>T</span>
+        </div>
+        <div class="logo-tagline">Tu mercado, natural y fresco.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="container">
       <div class="row py-2 align-items-center">
         <div class="col-md-3 logo-container">
-          <img src="ECOMARKET/LOGO DE mercado.png" alt="EcoMarket Logo">
+          <img src="/api/placeholder/60/60" alt="EcoMarket Logo">
           <h1 class="mb-0 fs-3 fw-bold text-success">EcoMarket</h1>
         </div>
         <div class="col-md-6">
@@ -496,53 +809,49 @@
   </header>
 
   <!-- Navigation -->
-/head>
-<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">EcoMarket</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">EcoMarket</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="productos.html">Productos</a>
-        </li>
-
-        <!-- Dropdown de Categorías -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorías
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="frutas.html">Frutas</a></li>
-            <li><a class="dropdown-item" href="verduras.html">Verduras</a></li>
-            <li><a class="dropdown-item" href="granos.html">Granos</a></li>
-            <li><a class="dropdown-item" href="legumbres.html">Legumbres</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="todos.html">Ver todos</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="nosotros.html">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="blog.html">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contacto.html">Contacto</a>
-        </li>
-      </ul>
+          <!-- Dropdown de Categorías -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorías
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="frutas.html">Frutas</a></li>
+              <li><a class="dropdown-item" href="verduras.html">Verduras</a></li>
+              <li><a class="dropdown-item" href="granos.html">Granos</a></li>
+              <li><a class="dropdown-item" href="legumbres.html">Legumbres</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="todos.html">Ver todos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>  
+  </nav>  
   
   <!-- Hero Section -->
   <section class="hero animate-fadeIn">
@@ -581,7 +890,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="category-card">
-            <img src="https://us.123rf.com/450wm/subbotina/subbotina1709/subbotina170900033/85310854-caf%C3%A9-planta-de-caf%C3%A9-real-sobre-fondo-de-caf%C3%A9-tostado.jpg?ver=6" alt="Granos Orgánicos">
+            <img src="/api/placeholder/300/200" alt="Granos Orgánicos">
             <div class="card-body text-center">
               <h5>Granos Orgánicos</h5>
               <p class="mb-2">Energía natural</p>
@@ -591,7 +900,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
           <div class="category-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9EVfXiZoIqt4hqrKttgLYgyNXA4undyYdFmAiNLA4PSCDcKN1TH7df8g2nJWwfoA3JDo&usqp=CAU" alt="Legumbres Orgánicas">
+            <img src="/api/placeholder/300/200" alt="Legumbres Orgánicas">
             <div class="card-body text-center">
               <h5>Legumbres Orgánicas</h5>
               <p class="mb-2">Proteína vegetal</p>
@@ -612,7 +921,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="product-card position-relative">
             <span class="discount-badge">-15%</span>
-            <img src="https://www.cronista.com/files/image/752/752365/65e0818e87446_700_462!.jpg?s=0c2b12246b44dcdcc0af373150de4fe6&d=1709321373" alt="Aguacate Orgánico">
+            <img src="/api/placeholder/300/200" alt="Aguacate Orgánico">
             <div class="card-body">
               <div class="mb-2">
                 <span class="eco-badge">Orgánico</span>
@@ -635,7 +944,7 @@
         <!-- Product 2 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="product-card position-relative">
-            <img src="https://infoalimentos.org.ar/images/temas/seguridad_de_los_alimentos/TEMAS_manzana_presentacion_400x300.jpg" alt="Manzana Roja Orgánica">
+            <img src="/api/placeholder/300/200" alt="Manzana Roja Orgánica">
             <div class="card-body">
               <div class="mb-2">
                 <span class="eco-badge">Orgánico</span>
@@ -657,7 +966,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="product-card position-relative">
             <span class="discount-badge">-20%</span>
-            <img src="https://i.ebayimg.com/images/g/m~cAAOSw0lNhQFtH/s-l400.jpg" alt="Quinoa Orgánica">
+            <img src="/api/placeholder/300/200" alt="Quinoa Orgánica">
             <div class="card-body">
               <div class="mb-2">
                 <span class="eco-badge">Orgánico</span>
@@ -680,7 +989,7 @@
         <!-- Product 4 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="product-card position-relative">
-            <img src="https://statics.diariomendoza.com.ar/2024/11/crop/673284c0709f4__400x300.webp" alt="Espinaca Orgánica">
+            <img src="/api/placeholder/300/200" alt="Espinaca Orgánica">
             <div class="card-body">
               <div class="mb-2">
                 <span class="eco-badge">Orgánico</span>
@@ -712,7 +1021,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="about-img">
-            <img src="LOGO DE mercado.png" alt="Sobre EcoMarket">
+            <img src="/api/placeholder/600/400" alt="Sobre EcoMarket">
           </div>
         </div>
         <div class="col-lg-6">
@@ -756,52 +1065,134 @@
       </div>
     </div>
   </section>
-<footer class="bg-success text-white pt-4">
-  <div class="container">
-    <div class="row">
 
-      <!-- Información de contacto -->
-      <div class="col-md-4 mb-3">
-        <h5>EcoMarket</h5>
-        <p>Tu mercado natural y fresco. Productos 100% orgánicos directamente del agricultor a tu hogar.</p>
-        <p><i class="bi bi-telephone"></i> +51 987 654 321</p>
-        <p><i class="bi bi-envelope"></i> contacto@ecomarket.pe</p>
-      </div>
-
-      <!-- Enlaces útiles -->
-      <div class="col-md-4 mb-3">
-        <h5>Enlaces</h5>
-        <ul class="list-unstyled">
-          <li><a href="index.html" class="text-white">Inicio</a></li>
-          <li><a href="productos.html" class="text-white">Productos</a></li>
-          <li><a href="nosotros.html" class="text-white">Nosotros</a></li>
-          <li><a href="contacto.html" class="text-white">Contacto</a></li>
-        </ul>
-      </div>
-
-      <!-- Métodos de Pago y Redes Sociales -->
-      <div class="col-md-4 mb-3">
-        <h5>Métodos de Pago</h5>
-        <div class="d-flex flex-wrap gap-2">
-          <img src="images/Captura de pantalla 2025-05-21 210952.png" alt="Yape" width="50">
-          <img src="" alt="Plin" width="50">
-          <img src="img/bcp.png" alt="BCP" width="50">
+  <!-- Footer -->
+  <footer class="bg-success text-white pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- Información de contacto -->
+        <div class="col-md-4 mb-3">
+          <h5>EcoMarket</h5>
+          <p>Tu mercado natural y fresco. Productos 100% orgánicos directamente del agricultor a tu hogar.</p>
+          <p><i class="bi bi-telephone"></i> +51 940 878 493</p>
+          <p><i class="bi bi-envelope"></i> contacto@ecomarket.pe</p>
         </div>
 
-        <h5 class="mt-3">Síguenos</h5>
-        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white me-2"><i class="bi i bi-whatsapp"></i></a>
-      </div>
+        <!-- Enlaces útiles -->
+        <div class="col-md-4 mb-3">
+          <h5>Enlaces</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Inicio</a></li>
+            <li><a href="productos.html" class="text-white">Productos</a></li>
+            <li><a href="nosotros.html" class="text-white">Nosotros</a></li>
+            <li><a href="contacto.html" class="text-white">Contacto</a></li>
+          </ul>
+        </div>
 
-    </div>bi-instagram"></i></a>
-        <a href="#" class="text-white me-2"><i class="b
-    <p class="mt-3">
-  <a href="libro-reclamaciones.html" class="text-white text-decoration-underline">
-    Libro de Reclamaciones
-  </a>
-</p>
-    <div class="text-center py-3 border-top border-white mt-3">
-      &copy; 2025 EcoMarket. Todos los derechos reservados.
+        <!-- Métodos de Pago y Redes Sociales -->
+        <div class="col-md-4 mb-3">
+          <h5>Métodos de Pago</h5>
+          <div class="d-flex flex-wrap gap-2">
+            <img src="/api/placeholder/50/30" alt="Yape" width="50">
+            <img src="/api/placeholder/50/30" alt="Plin" width="50">
+            <img src="/api/placeholder/50/30" alt="BCP" width="50">
+          </div>
+
+          <h5 class="mt-3">Síguenos</h5>
+          <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white me-2"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <p class="mt-3">
+        <a href="libro-reclamaciones.html" class="text-white text-decoration-underline">
+          Libro de Reclamaciones
+        </a>
+      </p>
+      
+      <div class="text-center py-3 border-top border-white mt-3">
+        &copy; 2025 EcoMarket. Todos los derechos reservados.
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript para el Popup -->
+  <script>
+    // Mostrar popup después de 2 segundos de cargar la página
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('popupOverlay').classList.add('show');
+      }, 2000);
+    });
+
+    // Función para cerrar el popup
+    function closePromo() {
+      const popup = document.getElementById('popupOverlay');
+      popup.classList.remove('show');
+      
+      // Opcional: establecer una cookie para no mostrar el popup nuevamente por un tiempo
+      localStorage.setItem('ecomarket_popup_shown', 'true');
+    }
+
+    // Función para el botón "Comprar Ahora"
+    function buyNow() {
+      closePromo();
+      // Redirigir a la sección de productos o abrir el carrito
+      window.location.href = '#products-section';
+      // También podrías mostrar un mensaje de éxito
+      setTimeout(function() {
+        alert('¡Gracias por tu interés! Te hemos dirigido a nuestros productos destacados.');
+      }, 500);
+    }
+
+    // Cerrar popup al hacer clic fuera del contenido
+    document.getElementById('popupOverlay').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePromo();
+      }
+    });
+
+    // Auto-cerrar después de 15 segundos si no hay interacción
+    setTimeout(function() {
+      const popup = document.getElementById('popupOverlay');
+      if (popup.classList.contains('show')) {
+        closePromo();
+      }
+    }, 15000);
+
+    // Verificar si el popup ya se mostró antes (opcional)
+    document.addEventListener('DOMContentLoaded', function() {
+      const popupShown = localStorage.getItem('ecomarket_popup_shown');
+      if (popupShown === 'true') {
+        // Si quieres que el popup se muestre solo una vez por sesión, descomenta la siguiente línea:
+        // return;
+      }
+    });
+
+    // Funcionalidad adicional para los botones "Agregar al carrito"
+    document.addEventListener('DOMContentLoaded', function() {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+      let cartCount = 3; // Valor inicial del contador
+
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          cartCount++;
+          document.getElementById('cart-count').textContent = cartCount;
+          
+          // Efecto visual al agregar producto
+          this.textContent = '¡Agregado!';
+          this.style.backgroundColor = '#4CAF50';
+          
+          setTimeout(() => {
+            this.textContent = 'Agregar al carrito';
+            this.style.backgroundColor = '';
+          }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
