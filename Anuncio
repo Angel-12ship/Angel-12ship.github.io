@@ -347,10 +347,4 @@
 
         // Auto-cerrar después de 15 segundos si no interactúa
         setTimeout(() => {
-            if (document.body.style.display !== 'none') {
-                closePromo();
-            }
-        }, 15000);
-    </script>
-</body>
-</html>
+            if (document.body.st
